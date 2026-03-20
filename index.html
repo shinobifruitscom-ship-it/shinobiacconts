@@ -20,36 +20,17 @@ body {
   overflow-x: hidden;
 }
 
-/* BACKGROUND */
+/* BACKGROUND PROFISSIONAL */
 body::before {
   content: "";
   background: url('https://i.imgur.com/8Km9tLL.png') no-repeat center;
   background-size: 700px;
-  opacity: 0.07;
+  opacity: 0.06;
   filter: blur(1px);
   position: fixed;
   width: 100%;
   height: 100%;
-  z-index: -2;
-}
-
-/* IMAGEM DA MULHER (AGORA FUNCIONANDO) */
-.character {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  width: 420px;
-  opacity: 0.3;
-  pointer-events: none;
-  filter: contrast(1.2) brightness(0.9);
-  animation: float 6s ease-in-out infinite;
   z-index: -1;
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0px); }
 }
 
 /* HEADER */
@@ -59,7 +40,7 @@ header {
   font-size: 28px;
   letter-spacing: 3px;
   border-bottom: 1px solid #300;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(6px);
 }
 
 .logo {
@@ -67,12 +48,13 @@ header {
   text-shadow: 0 0 10px red;
 }
 
-/* CONTEÚDO */
+/* CONTAINER */
 .container {
   padding: 80px 20px;
   text-align: center;
 }
 
+/* TÍTULO COM EFEITO */
 h1 {
   font-size: 48px;
   animation: glow 2s infinite alternate;
@@ -104,7 +86,7 @@ h1 {
   box-shadow: 0 0 50px rgba(255,0,0,0.5);
 }
 
-/* BOTÃO TOP */
+/* BOTÃO PREMIUM */
 .btn {
   display: block;
   margin: 25px auto;
@@ -122,6 +104,7 @@ h1 {
   overflow: hidden;
 }
 
+/* efeito brilho */
 .btn::after {
   content: "";
   position: absolute;
@@ -165,8 +148,9 @@ footer {
   color: #777;
 }
 
-/* RESPONSIVO */
+/* RESPONSIVIDADE */
 @media (max-width: 768px) {
+
   h1 {
     font-size: 28px;
   }
@@ -176,18 +160,11 @@ footer {
     padding: 25px;
   }
 
-  .character {
-    width: 260px;
-    opacity: 0.2;
-  }
 }
 </style>
 </head>
 
 <body>
-
-<!-- AQUI ESTÁ A IMAGEM -->
-<img src="mulher.jpg" class="character">
 
 <header>
   <span class="logo">Shinobi</span> Accounts
@@ -205,6 +182,7 @@ footer {
     <a href="https://discord.gg/9CXvuy84" target="_blank" rel="noopener noreferrer" class="btn">
       Entrar no Discord
     </a>
+
   </div>
 </div>
 
