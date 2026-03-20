@@ -2,6 +2,11 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+
+<!-- SEO -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Shinobi Accounts - Mercado secreto de contas e serviços Blox Fruits">
+
 <title>Shinobi Accounts</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
@@ -15,25 +20,46 @@ body {
   overflow-x: hidden;
 }
 
-/* FUNDO DRAGÃO */
+/* BACKGROUND */
 body::before {
   content: "";
   background: url('https://i.imgur.com/8Km9tLL.png') no-repeat center;
-  background-size: 600px;
-  opacity: 0.05;
+  background-size: 700px;
+  opacity: 0.07;
+  filter: blur(1px);
   position: fixed;
   width: 100%;
   height: 100%;
+  z-index: -2;
+}
+
+/* IMAGEM DA MULHER (AGORA FUNCIONANDO) */
+.character {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 420px;
+  opacity: 0.3;
+  pointer-events: none;
+  filter: contrast(1.2) brightness(0.9);
+  animation: float 6s ease-in-out infinite;
   z-index: -1;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
 }
 
 /* HEADER */
 header {
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.85);
   padding: 20px;
   font-size: 28px;
   letter-spacing: 3px;
   border-bottom: 1px solid #300;
+  backdrop-filter: blur(5px);
 }
 
 .logo {
@@ -49,7 +75,12 @@ header {
 
 h1 {
   font-size: 48px;
-  text-shadow: 0 0 15px red;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px red; }
+  to { text-shadow: 0 0 30px red; }
 }
 
 .subtitle {
@@ -59,49 +90,59 @@ h1 {
 
 /* CARD */
 .card {
-  background: rgba(20, 0, 0, 0.8);
+  background: rgba(20, 0, 0, 0.85);
   border: 1px solid #500;
   border-radius: 15px;
   padding: 40px;
   display: inline-block;
   box-shadow: 0 0 25px rgba(255,0,0,0.2);
-  transition: 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 40px rgba(255,0,0,0.4);
+  box-shadow: 0 0 50px rgba(255,0,0,0.5);
 }
 
-/* BOTÃO DISCORD */
+/* BOTÃO TOP */
 .btn {
   display: block;
-  margin: 20px auto;
-  padding: 12px 30px;
+  margin: 25px auto;
+  padding: 14px 30px;
   border: none;
   color: white;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: bold;
   text-decoration: none;
-  transition: 0.3s;
-  width: 220px;
+  transition: all 0.3s ease;
+  width: 240px;
   background: linear-gradient(45deg, #5865F2, #404eed);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: 0.5s;
+}
+
+.btn:hover::after {
+  left: 100%;
 }
 
 .btn:hover {
-  box-shadow: 0 0 15px #5865F2;
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px #5865F2;
 }
 
-/* RODAPÉ */
-footer {
-  margin-top: 100px;
-  padding: 20px;
-  font-size: 14px;
-  color: #777;
-}
-
-/* DETALHE SHINOBI */
+/* LINHA */
 .line {
   width: 200px;
   height: 2px;
@@ -115,10 +156,38 @@ footer {
   50% { opacity: 1; }
   100% { opacity: 0.2; }
 }
+
+/* FOOTER */
+footer {
+  margin-top: 100px;
+  padding: 20px;
+  font-size: 14px;
+  color: #777;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  .card {
+    width: 90%;
+    padding: 25px;
+  }
+
+  .character {
+    width: 260px;
+    opacity: 0.2;
+  }
+}
 </style>
 </head>
 
 <body>
+
+<!-- AQUI ESTÁ A IMAGEM -->
+<img src="mulher.jpg" class="character">
 
 <header>
   <span class="logo">Shinobi</span> Accounts
@@ -133,11 +202,9 @@ footer {
     <h2>🔥 Loja Aberta</h2>
     <p>Contas, serviços e vantagens no Blox Fruits</p>
 
-    <!-- BOTÃO DISCORD -->
-    <a href="https://discord.gg/9CXvuy84" target="_blank" class="btn">
+    <a href="https://discord.gg/9CXvuy84" target="_blank" rel="noopener noreferrer" class="btn">
       Entrar no Discord
     </a>
-
   </div>
 </div>
 
